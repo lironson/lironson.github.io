@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-brand="ronson">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ronson. brand</title>
+  <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="ronson.css">
+  <style>
+    header { padding-block: var(--r-space-5) var(--r-space-4); }
+    .lede { margin-top: var(--r-space-4); font-size: var(--r-size-lead); line-height: 1.45; max-width: 28rem; }
+    section { padding-block: var(--r-space-4); }
+    section > .r-note:first-child { display: block; margin-bottom: var(--r-space-3); }
+    .rules { margin: 0; padding: 0; list-style: none; }
+    .rules li { padding-block: 10px; border-top: var(--r-hairline) solid var(--r-line); }
+    .rules li:last-child { border-bottom: var(--r-hairline) solid var(--r-line); }
+    .swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--r-space-3) var(--r-space-2); }
+    .chip { aspect-ratio: 3 / 2; border: var(--r-hairline) solid var(--r-line); }
+    .swatches p { margin-top: var(--r-space-1); }
+    .specimen + .specimen { margin-top: var(--r-space-3); }
+    .big { font-size: var(--r-size-title); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+    .demo { display: grid; gap: var(--r-space-3); }
+    .demo > div { display: grid; gap: var(--r-space-1); }
+    .logo-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--r-space-4); }
+    .logo-row img { display: block; height: auto; }
+    pre { margin: 0; padding: var(--r-space-2) 0; overflow-x: auto; border-block: var(--r-hairline) solid var(--r-line); color: var(--r-quiet); }
+    footer { padding-block: var(--r-space-5) var(--r-space-4); }
+    .colophon { display: flex; justify-content: space-between; margin-top: var(--r-space-2); }
+  </style>
+</head>
+<body>
+  <div class="r-page">
+    <header>
+      <h1 class="r-wordmark">ronson<span class="r-dot">.</span></h1>
+      <p class="lede">a quiet system. mostly paper, a little ink, one orange dot.</p>
+    </header>
+
+    <section aria-labelledby="s1">
+      <h2 id="s1" class="r-note">01 · rules</h2>
+      <ol class="rules">
+        <li>empty space is the main material. when in doubt, remove it.</li>
+        <li>one typeface does the work. mono is for small notes only.</li>
+        <li>lines are hairlines. ticks at the ends, sometimes.</li>
+        <li>the orange is the dot in the wordmark. nothing else, usually.</li>
+        <li>lowercase, plain, a little dry.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="s2">
+      <h2 id="s2" class="r-note">02 · mark</h2>
+      <div class="logo-row">
+        <img src="logo/wordmark.svg" alt="ronson." width="180" height="31">
+        <img src="logo/favicon.svg" alt="favicon: r." width="32" height="32">
+      </div>
+    </section>
+
+    <section aria-labelledby="s3">
+      <h2 id="s3" class="r-note">03 · colour</h2>
+      <div class="swatches">
+        <div><div class="chip" style="background: var(--r-paper)"></div><p class="r-note">paper</p></div>
+        <div><div class="chip" style="background: var(--r-ink)"></div><p class="r-note">ink</p></div>
+        <div><div class="chip" style="background: var(--r-quiet)"></div><p class="r-note">quiet</p></div>
+        <div><div class="chip" style="background: var(--r-line)"></div><p class="r-note">line</p></div>
+        <div><div class="chip" style="background: var(--r-cut)"></div><p class="r-note">cut</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s4">
+      <h2 id="s4" class="r-note">04 · type</h2>
+      <p class="specimen big">archivo, set plainly.</p>
+      <p class="specimen">body text at sixteen pixels, with room to breathe and no more than about seventy characters a line.</p>
+      <p class="specimen r-note">martian mono · 01 · rev 04 · 310 mm</p>
+    </section>
+
+    <section aria-labelledby="s5">
+      <h2 id="s5" class="r-note">05 · drawing details</h2>
+      <div class="demo">
+        <div><div class="r-rule r-rule--ticked" role="separator"></div><span class="r-note">ticked rule</span></div>
+        <div><span class="r-dim r-note">640</span><span class="r-note">dimension</span></div>
+        <div><span class="r-note">01 · rev 04 · 2026</span><span class="r-note">notes</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s6">
+      <h2 id="s6" class="r-note">06 · use</h2>
+      <pre><code>&lt;link rel="stylesheet" href="https://lironson.github.io/brand/v1/tokens.css"&gt;   &lt;!-- variables only --&gt;
+&lt;link rel="stylesheet" href="https://lironson.github.io/brand/v1/ronson.css"&gt;   &lt;!-- everything --&gt;
+&lt;html data-brand="ronson"&gt;</code></pre>
+    </section>
+
+    <footer>
+      <div class="r-rule r-rule--ticked" role="separator"></div>
+      <p class="colophon r-note"><span>brand v1</span><span>rev 01 · 2026</span></p>
+    </footer>
+  </div>
+</body>
+</html>

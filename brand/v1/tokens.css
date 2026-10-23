@@ -1,0 +1,57 @@
+/* ronson. brand v1 — tokens
+   Variables only; styles nothing. Follows the OS theme; force with data-theme="light" | "dark". */
+
+:root,
+[data-theme="light"] {
+  --r-paper: #f3f2ee;
+  --r-ink: #191917;
+  --r-quiet: #6e6c66;     /* secondary text, 4.7:1 on paper */
+  --r-line: #d6d4cd;      /* hairlines */
+  --r-cut: #ff4f00;       /* the dot. marks only, never text */
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --r-paper: #121211;
+  --r-ink: #e9e7e1;
+  --r-quiet: #8f8d86;
+  --r-line: #2c2b29;
+  --r-cut: #ff4f00;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --r-paper: #121211;
+    --r-ink: #e9e7e1;
+    --r-quiet: #8f8d86;
+    --r-line: #2c2b29;
+    --r-cut: #ff4f00;
+    color-scheme: dark;
+  }
+}
+
+:root {
+  --r-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --r-mono: "Martian Mono", ui-monospace, Menlo, monospace;
+
+  --r-size-note: 0.6875rem;  /* 11px  mono notes */
+  --r-size-body: 1rem;       /* 16px */
+  --r-size-lead: 1.25rem;    /* 20px */
+  --r-size-title: 1.75rem;   /* 28px */
+
+  --r-leading: 1.6;
+  --r-tracking-note: 0.04em;
+
+  --r-space-1: 8px;
+  --r-space-2: 16px;
+  --r-space-3: 32px;
+  --r-space-4: 64px;
+  --r-space-5: 128px;
+  --r-space-6: 192px;
+
+  --r-hairline: 1px;
+  --r-tick: 7px;             /* end-tick height on dimension rules */
+  --r-measure: 36rem;
+  --r-gutter: 24px;
+}
