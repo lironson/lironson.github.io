@@ -1,74 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-brand="ronson">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ronson.</title>
   <meta name="description" content="collection of small, not very useful projects by ronson.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="brand/v1/logo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="brand/v1/ronson.css">
+  <style>
+    header { padding-block: var(--r-space-5) var(--r-space-4); }
+    .lede { margin-top: var(--r-space-4); font-size: var(--r-size-lead); line-height: 1.45; max-width: 26rem; }
+    main { padding-block: var(--r-space-4) var(--r-space-6); }
+    .item-desc { margin-top: var(--r-space-1); color: var(--r-quiet); }
+    .item-links { display: flex; gap: var(--r-space-2); margin-top: var(--r-space-2); }
+    footer { padding-bottom: var(--r-space-4); }
+    .colophon { display: flex; justify-content: space-between; gap: var(--r-space-2); margin-top: var(--r-space-2); }
+    @media (max-width: 480px) { header { padding-top: var(--r-space-4); } }
+  </style>
 </head>
 <body>
-  <main>
-    <header class="intro">
-      <h1>ronson<span style="color: #ff4f00;">.</span></h1>
+  <div class="r-page">
+    <header>
+      <h1 class="r-wordmark">ronson<span class="r-dot">.</span></h1>
       <p class="lede">my collection of small, not very useful projects on the web.</p>
-      <nav class="links">
-        <a href="https://github.com/lironson">GitHub</a>
-      </nav>
     </header>
 
-    <section aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
+    <main>
+      <ol class="r-list" aria-label="projects">
+        <li class="r-item">
+          <span class="r-note">01</span>
+          <div>
+            <h2>findmyguessr</h2>
+            <p class="item-desc">A party game where your camera roll is the map. Everyone adds their photos that go up on the TV and teams race to pin where they were taken from their phones.</p>
+            <p class="item-links r-note"><a class="r-link" href="https://lironson.github.io/findmyguessr/">try</a><a class="r-link" href="https://github.com/lironson/findmyguessr">source</a></p>
+          </div>
+        </li>
+        <li class="r-item">
+          <span class="r-note">02</span>
+          <div>
+            <h2>Golf Swing P-Positions</h2>
+            <p class="item-desc">Analyzes your golf swing across the 10 P&#8209;positions. It draws guide lines and gives coaching tips, and your photos never leave the browser.</p>
+            <p class="item-links r-note"><a class="r-link" href="https://lironson.github.io/golfswing/">try</a><a class="r-link" href="https://github.com/lironson/golfswing">source</a></p>
+          </div>
+        </li>
+        <li class="r-item">
+          <span class="r-note">03</span>
+          <div>
+            <h2>Steel Size Rolodex</h2>
+            <p class="item-desc">A quick lookup for structural steel sections, with metric and imperial sizes side by side. It finds the closest match to whatever you type and draws the section with a banana for scale, of course.</p>
+            <p class="item-links r-note"><a class="r-link" href="https://lironson.github.io/steel-size-rolodex/">try</a><a class="r-link" href="https://github.com/lironson/steel-size-rolodex">source</a></p>
+          </div>
+        </li>
+      </ol>
+    </main>
 
-      <div class="projects">
-        <article class="project">
-          <h3>findmyguessr</h3>
-          <p>A party game where your camera roll is the map. Everyone adds their photos that go up on the TV and teams race to pin where they were taken from their phones.</p>
-          <ul class="tags">
-            <li>WebRTC</li>
-            <li>Maps</li>
-            <li>Vanilla JS</li>
-          </ul>
-          <p class="actions">
-            <a href="https://lironson.github.io/findmyguessr/">Try it</a>
-            <a href="https://github.com/lironson/findmyguessr">Source</a>
-          </p>
-        </article>
-
-        <article class="project">
-          <h3>Golf Swing P-Positions</h3>
-          <p>Analyzes your golf swing across the 10 P-positions. It draws guide lines and gives coaching tips, and your photos never leave the browser.</p>
-          <ul class="tags">
-            <li>MediaPipe Pose</li>
-            <li>Computer vision</li>
-            <li>Vanilla JS</li>
-          </ul>
-          <p class="actions">
-            <a href="https://lironson.github.io/golfswing/">Try it</a>
-            <a href="https://github.com/lironson/golfswing">Source</a>
-          </p>
-        </article>
-
-        <article class="project">
-          <h3>Steel Size Rolodex</h3>
-          <p>A quick lookup for structural steel sections, with metric and imperial sizes side by side. It finds the closest match to whatever you type and draws the section with a banana for scale, of course.</p>
-          <ul class="tags">
-            <li>AISC data</li>
-            <li>SVG</li>
-            <li>Python tooling</li>
-          </ul>
-          <p class="actions">
-            <a href="https://lironson.github.io/steel-size-rolodex/">Try it</a>
-            <a href="https://github.com/lironson/steel-size-rolodex">Source</a>
-          </p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 lironson · Hosted on GitHub Pages</p>
-  </footer>
+    <footer>
+      <div class="r-rule r-rule--ticked" role="separator"></div>
+      <p class="colophon r-note"><span>© 2026 lironson</span><a class="r-link" href="https://github.com/lironson">github</a></p>
+    </footer>
+  </div>
 </body>
 </html>
