@@ -1,14 +1,15 @@
 ---
 name: brand-apply
-description: Adds the ronson. brand to an existing project at the level the user picks (tokens only, or everything). Only use when the user explicitly asks to apply the brand; never apply it unprompted.
+description: Adds the ronson. brand (brand.css) to an existing project. Only use when the user explicitly asks to apply the brand; never apply it unprompted.
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 
-The **ronson.** brand is opt-in. Apply it only as far as asked, and ask which level if the user hasn't said:
+The **ronson.** brand is one file, `brand.css`, and it's opt-in. Apply it only when asked.
 
-- **tokens**: link `https://lironson.github.io/brand/v1/tokens.css` (and `fonts.css` if the faces are wanted), then map the project's existing colours, sizes and spacing to `--r-*` variables. Its layout stays as it is.
-- **everything**: link `ronson.css`, add `data-brand="ronson"` to `<html>`, use the `.r-*` classes where they fit, and use the favicon at `brand/v1/logo/favicon.svg`.
+1. Read `brand.css` (local copy, or `https://lironson.github.io/brand.css`).
+2. Add `<link rel="stylesheet" href="https://lironson.github.io/brand.css">` to the project's pages. For an offline or bundled project, copy `brand.css` in instead. Linking it sets the body font, colours and links.
+3. Replace the project's own colours, font sizes and spacing with the matching `--r-*` variables. Swap in `.r-wordmark` / `.r-dot`, `.r-note` and `.r-rule` where they fit. Remove CSS that's now dead.
+4. Keep the project's layout and behaviour intact, and make the smallest change that gets there.
+5. Run the project's own checks, screenshot it before and after at 1440 and 390 wide, and apply the `brand-guardian` checklist.
 
-For bundled or offline projects, copy `brand/v1/` into the project instead of hot-linking. Always pin to `v1/`.
-
-Make the smallest change that gets there: replace raw values instead of layering overrides, remove dead CSS, and keep the project's behaviour intact. Afterwards, run the project's own checks, screenshot it before and after at 1440 and 390 wide, and apply the `brand-guardian` checklist. Report the level applied, the files changed, and anything that didn't map cleanly to a token.
+Report the files changed and anything that didn't map cleanly to a brand variable.
