@@ -1,1 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#1f2937"/><text x="16" y="22" font-family="system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#ffffff">L</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="#191917"/><path fill="#f3f2ee" d="M9 9h4v2.2c1-1.6 2.6-2.4 4.8-2.4H19v3.8h-1.6c-2.9 0-4.4 1.4-4.4 4.4V23H9z"/><rect x="20" y="19" width="4" height="4" fill="#ff4f00"/></svg>

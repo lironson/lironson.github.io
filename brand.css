@@ -1,0 +1,183 @@
+/* ==========================================================================
+   ronson. brand
+   --------------------------------------------------------------------------
+   The whole brand in one file: fonts, colours, sizes, spacing, and a few
+   small brand marks. Edit the values below and every page using it updates.
+
+   How to use it (add this line to the <head> of any page):
+     <link rel="stylesheet" href="https://lironson.github.io/brand.css">
+
+   Linking this file sets the page's font, text colour and background.
+   Everything is prefixed "r-" (variables --r-*, classes .r-*) so it won't
+   clash with a project's own CSS.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. Fonts
+   Archivo for everything; Martian Mono only for small notes (numbers, dates).
+   Loaded from Google Fonts. Must stay the first line of real CSS.
+   -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Martian+Mono:wdth,wght@87.5,400&display=swap");
+
+:root {
+  --r-font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --r-font-mono: "Martian Mono", ui-monospace, Menlo, monospace;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Colours (light)
+   Mostly paper, a little ink, one orange dot.
+   -------------------------------------------------------------------------- */
+:root {
+  --r-paper: #f3f2ee;   /* page background */
+  --r-ink:   #191917;   /* main text */
+  --r-quiet: #6e6c66;   /* secondary text (descriptions, notes) */
+  --r-line:  #d6d4cd;   /* hairlines and dividers */
+  --r-cut:   #ff4f00;   /* the orange dot. use for marks only, never for text */
+  color-scheme: light;
+}
+
+/* Colours (dark). Used automatically when the device is in dark mode. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --r-paper: #121211;
+    --r-ink:   #e9e7e1;
+    --r-quiet: #8f8d86;
+    --r-line:  #2c2b29;
+    color-scheme: dark;
+  }
+}
+
+/* To force a theme, add data-theme="light" or data-theme="dark" to <html>. */
+:root[data-theme="light"] {
+  --r-paper: #f3f2ee;
+  --r-ink:   #191917;
+  --r-quiet: #6e6c66;
+  --r-line:  #d6d4cd;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --r-paper: #121211;
+  --r-ink:   #e9e7e1;
+  --r-quiet: #8f8d86;
+  --r-line:  #2c2b29;
+  color-scheme: dark;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Type sizes
+   Four sizes cover everything. Keep it that way.
+   -------------------------------------------------------------------------- */
+:root {
+  --r-size-note:  11px;  /* small mono notes: 01, rev 04, 2026 */
+  --r-size-body:  16px;  /* body text */
+  --r-size-lead:  20px;  /* intro sentence */
+  --r-size-title: 24px;  /* the wordmark and page titles (1.5x body) */
+
+  --r-leading: 1.6;      /* line height for body text */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Spacing and lines
+   Generous gaps are the point. Use the big ones between sections.
+   -------------------------------------------------------------------------- */
+:root {
+  --r-space-1: 8px;
+  --r-space-2: 16px;
+  --r-space-3: 32px;
+  --r-space-4: 64px;
+  --r-space-5: 128px;
+  --r-space-6: 192px;
+
+  --r-hairline: 1px;     /* every line is a hairline */
+  --r-width: 36rem;      /* max width of the text column */
+  --r-gutter: 24px;      /* side padding (use 16px on phones) */
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Base
+   Plain defaults for the page itself.
+   -------------------------------------------------------------------------- */
+body {
+  margin: 0;
+  background: var(--r-paper);
+  color: var(--r-ink);
+  font-family: var(--r-font);
+  font-size: var(--r-size-body);
+  line-height: var(--r-leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links: ink text with a faint hairline underline that darkens on hover. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--r-line);
+  text-decoration-thickness: var(--r-hairline);
+  text-underline-offset: 0.3em;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+::selection {
+  background: var(--r-ink);
+  color: var(--r-paper);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Brand marks
+   The only classes in the brand. Use them where they fit.
+   -------------------------------------------------------------------------- */
+
+/* The wordmark:  <h1 class="r-wordmark">ronson<span class="r-dot">.</span></h1> */
+.r-wordmark {
+  margin: 0;
+  font-size: var(--r-size-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* The orange dot. */
+.r-dot {
+  color: var(--r-cut);
+}
+
+/* Small mono note for numbers, dates and revisions:  <span class="r-note">01</span> */
+.r-note {
+  font-family: var(--r-font-mono);
+  font-size: var(--r-size-note);
+  font-stretch: 87.5%;
+  letter-spacing: 0.04em;
+  color: var(--r-quiet);
+}
+
+/* Hairline with small end ticks, borrowed from shop drawings:  |———|
+   Use a div:  <div class="r-rule" role="separator"></div>
+   (browsers can't draw the ticks on an <hr>) */
+.r-rule {
+  position: relative;
+  border-top: var(--r-hairline) solid var(--r-line);
+}
+
+.r-rule::before,
+.r-rule::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  height: 7px;
+  border-left: var(--r-hairline) solid var(--r-quiet);
+}
+
+.r-rule::before { left: 0; }
+.r-rule::after { right: 0; }
