@@ -6,6 +6,7 @@
   <title>ronson.</title>
   <meta name="description" content="collection of small, not very useful projects by ronson.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <link rel="stylesheet" href="brand.css">
   <style>
     /* Page layout. Colours, fonts and sizes come from brand.css. */
@@ -21,9 +22,14 @@
 
     /* sections: a mono label, then a numbered list divided by hairlines */
     main { padding-block: var(--r-space-4) var(--r-space-6); }
-    section + section { margin-top: var(--r-space-4); }
-    section > h2 { font-weight: 400; }
-    section > h2 + .projects { margin-top: var(--r-space-2); }
+    .group + .group { margin-top: var(--r-space-4); }
+    .group summary { list-style: none; cursor: pointer; font-family: var(--r-font-mono); font-size: var(--r-size-note); }
+    .group summary::-webkit-details-marker { display: none; }
+    .group summary h2 { display: inline; font-weight: 400; }
+    .group summary h2::after { content: "+"; content: "+" / ""; margin-left: var(--r-space-1); }
+    .group[open] summary h2::after { content: "\2212"; content: "\2212" / ""; }
+    .group summary:hover h2, .group summary:focus-visible h2 { color: var(--r-ink); }
+    summary + .projects { margin-top: var(--r-space-2); }
     .projects { margin: 0; padding: 0; list-style: none; border-bottom: var(--r-hairline) solid var(--r-line); }
     .projects li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); padding-block: var(--r-space-3); border-top: var(--r-hairline) solid var(--r-line); }
     .projects li > .r-note { padding-top: 0.35em; }
@@ -34,7 +40,21 @@
 
     /* footer: ticked rule, then one line of notes */
     footer { padding-bottom: var(--r-space-4); }
-    .colophon { display: flex; justify-content: space-between; gap: var(--r-space-2); margin-top: var(--r-space-2); }
+    .colophon { display: flex; justify-content: space-between; align-items: center; gap: var(--r-space-2); margin-top: var(--r-space-2); }
+    .colophon .end { display: flex; align-items: center; gap: var(--r-space-2); }
+
+    /* theme toggle: a bare hairline glyph. moon in light, sun in dark */
+    .theme { padding: var(--r-space-1); margin: calc(-1 * var(--r-space-1)); border: 0; background: none; font: inherit; line-height: 0; color: var(--r-quiet); cursor: pointer; }
+    .theme:focus-visible { outline: var(--r-hairline) solid currentColor; outline-offset: 0; }
+    .theme:hover, .theme:focus-visible { color: var(--r-ink); }
+    .theme svg { display: block; }
+    .theme .sun { display: none; }
+    :root[data-theme="dark"] .theme .moon { display: none; }
+    :root[data-theme="dark"] .theme .sun { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme .moon { display: none; }
+      :root:not([data-theme="light"]) .theme .sun { display: block; }
+    }
 
     @media (max-width: 480px) {
       .page { padding: 0 var(--r-space-2); }
@@ -51,8 +71,8 @@
     </header>
 
     <main>
-      <section aria-labelledby="grizzly">
-        <h2 id="grizzly" class="r-note">created for grizzly</h2>
+      <details class="group" open>
+        <summary><h2 class="r-note">created for grizzly</h2></summary>
         <ol class="projects">
           <li>
             <span class="r-note">01</span>
@@ -71,10 +91,10 @@
             </div>
           </li>
         </ol>
-      </section>
+      </details>
 
-      <section aria-labelledby="personal">
-        <h2 id="personal" class="r-note">personal</h2>
+      <details class="group" open>
+        <summary><h2 class="r-note">personal</h2></summary>
         <ol class="projects">
           <li>
             <span class="r-note">01</span>
@@ -101,13 +121,22 @@
             </div>
           </li>
         </ol>
-      </section>
+      </details>
     </main>
 
     <footer>
       <div class="r-rule" role="separator"></div>
-      <p class="colophon r-note"><span>© 2026 lironson</span><a href="https://github.com/lironson">github</a></p>
+      <p class="colophon r-note"><span>© 2026 lironson</span><span class="end"><a href="https://github.com/lironson">github</a><button class="theme" type="button" aria-label="toggle dark mode"><svg class="moon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M11.8 8.3A5 5 0 1 1 5.7 2.2a4.3 4.3 0 0 0 6.1 6.1z"/></svg><svg class="sun" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="7" cy="7" r="2.5"/><path d="M7 1v1.5M7 11.5V13M1 7h1.5M11.5 7H13M2.76 2.76l1.06 1.06M10.18 10.18l1.06 1.06M2.76 11.24l1.06-1.06M10.18 3.82l1.06-1.06"/></svg></button></span></p>
     </footer>
   </div>
+  <script>
+    document.querySelector('.theme').addEventListener('click', function () {
+      var root = document.documentElement;
+      var current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  </script>
 </body>
 </html>
